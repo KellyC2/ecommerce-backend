@@ -1,7 +1,6 @@
 package com.kellyprojects.ecommerce_project.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,12 +15,14 @@ import java.util.Date;
 @NoArgsConstructor
 public class Product {
     @Id
-    private double id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String description;
     private String brand;
     private BigDecimal price;
     private String category;
+    @Column(name = "release_date")
     private LocalDate releaseDate;
     private  boolean available;
     private int quantity;
