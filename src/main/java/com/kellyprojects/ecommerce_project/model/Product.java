@@ -1,5 +1,7 @@
 package com.kellyprojects.ecommerce_project.model;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +24,9 @@ public class Product {
     private String brand;
     private BigDecimal price;
     private String category;
+
     @Column(name = "release_date")
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private LocalDate releaseDate;
     private  boolean available;
     private int quantity;
