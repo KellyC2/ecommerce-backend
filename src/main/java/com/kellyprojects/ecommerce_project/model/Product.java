@@ -26,9 +26,13 @@ public class Product {
     private String category;
 
     @Column(name = "release_date")
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private LocalDate releaseDate;
-    private  boolean available;
-    private int quantity;
+    private  boolean productAvailable;
+    private int stockQuantity;
+
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
 
 }
